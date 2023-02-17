@@ -1,4 +1,5 @@
-import { Profile } from './Profile/profile';
+import { Layout } from './Layout' 
+import { Profile } from './Profile/Profile';
 import user from './Profile/user.json';
 import { Statistics } from './Statistics/Statistics';
 import data from './Statistics/data.json';
@@ -6,11 +7,12 @@ import { FriendsList } from './FriendsList/FriendsList';
 import friends from './FriendsList/friends.json';
 import { TransactionHistory } from './Transactions/Transactions';
 import transactions from './Transactions/transactions.json';
+import { GlobalStyle } from './GlobalStyle';
 
 
 export const App = () => {
   return (
-    <div
+    <Layout
       style={{
         height: '100vh',
         display: 'flex',
@@ -20,6 +22,7 @@ export const App = () => {
         color: '#010101',
       }}
     >
+      <GlobalStyle />
       <Profile
         username={user.username}
         tag={user.tag}
@@ -30,6 +33,6 @@ export const App = () => {
       <Statistics title="Upload stats" stats={data} />
       <FriendsList friends={friends}/>
       <TransactionHistory items={transactions} />;
-    </div>
+    </Layout>
   );
 };
